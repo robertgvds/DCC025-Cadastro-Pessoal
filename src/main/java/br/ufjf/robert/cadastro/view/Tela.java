@@ -19,14 +19,14 @@ public class Tela extends JFrame {
     private final int HEIGHT = 200;
     private final int V_GAP = 10;
     private final int H_GAP = 5;
- /*
+ 
     private JTextField tfNome = new JTextField("Digite seu nome");
     private JTextField tfCPF = new JTextField("000.000.000-00");
-    private JTextField tfDataNascimento = new JTextField("00/00/0000");*/
+    private JTextField tfDataNascimento = new JTextField("00/00/0000");
 
-    private JTextField tfNome = new JTextField("Robert");
-    private JTextField tfCPF = new JTextField("131.577.396-11");
-    private JTextField tfDataNascimento = new JTextField("03/05/2005");
+    //private JTextField tfNome = new JTextField("Robert");
+    //private JTextField tfCPF = new JTextField("131.577.396-11");
+    //private JTextField tfDataNascimento = new JTextField("03/05/2005");
 
     private JButton btAdicionar = new JButton("Adicionar");
     private JButton btRemover = new JButton("Remover");
@@ -119,6 +119,7 @@ public class Tela extends JFrame {
 
         this.tabelaPessoas = new JTable(model);
         this.tabelaPessoas.setFillsViewportHeight(true);
+        this.tabelaPessoas.setDefaultEditor(Object.class, null);
 
         this.tabelaPessoas.getSelectionModel().addListSelectionListener(new SelecionarCadastro(this));
 
@@ -140,6 +141,7 @@ public class Tela extends JFrame {
         try {
             // Adiciona a pessoa na tabela
             cadastros.add(new Cadastro(tfNome.getText(), tfCPF.getText(), tfDataNascimento.getText()));
+
             atualizaTabela();
             
         } catch (DataException e) {
@@ -153,7 +155,10 @@ public class Tela extends JFrame {
         try {
             // Remove a pessoa da tabela
             cadastros.remove(tabelaPessoas.getSelectedRow());
+
             atualizaTabela();
+            limparCampos();
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Selecione um cadastro para remover", "Erro", JOptionPane.ERROR_MESSAGE);
         }
@@ -169,6 +174,7 @@ public class Tela extends JFrame {
                 cadastro.setIdade(tfDataNascimento.getText());
 
             atualizaTabela();
+            limparCampos();
 
         } catch (DataException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
@@ -178,6 +184,12 @@ public class Tela extends JFrame {
             JOptionPane.showMessageDialog(this, "Selecione um cadastro para editar", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    private void limparCampos() {
+        tfNome.setText("");
+        tfCPF.setText("");
+        tfDataNascimento.setText("");
+    }    
 
     private void atualizaTabela() {
         tabelaPessoas.clearSelection();

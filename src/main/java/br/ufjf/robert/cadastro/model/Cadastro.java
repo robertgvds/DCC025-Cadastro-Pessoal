@@ -40,8 +40,9 @@ public class Cadastro {
         return dataNascimento;
     }
 
-    public void setDataNascimento(String dataNascimento) {
+    public void setDataNascimento(String dataNascimento) throws DataException {
         this.dataNascimento = dataNascimento;
+        this.idade = calcularIdade();
     }
 
     public int getIdade() {
