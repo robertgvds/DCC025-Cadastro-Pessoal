@@ -30,7 +30,6 @@ DCC025-Cadastro-Pessoal/
 │   ├── model/
 │   └── view/
 └── README.md
-![Captura de tela 2024-09-29 002536](https://github.com/user-attachments/assets/f803c63e-c172-4bf6-9272-49d66de73749)
 ```
 
 ## Como Executar o Projeto
