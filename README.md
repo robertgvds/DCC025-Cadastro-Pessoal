@@ -67,6 +67,3 @@ Sobre o Maven:
 ## Instalação
 Para o JDK, é necesário seguir os passos do executável e adicionar o caminho do diretório \bin nas variáveis de ambiente Path
 Para o Maven, é preciso mover o conteúdo do zip para Arquivos de Programas e em seguida copiar o caminho do diretório \bin e adicionar as variáveis de ambiente Path
-
-## Referências
-Download e Instalação do JDK e Maven
